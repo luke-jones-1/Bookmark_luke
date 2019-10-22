@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'sinatra/base'
+require_relative './lib/bookmark'
 
 # This is bigboy class
 class BookmarkManager < Sinatra::Base
@@ -9,6 +10,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks' do
+    @bookmarks = Bookmark.all
+
     erb(:bookmarks)
   end
 
