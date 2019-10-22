@@ -1,19 +1,57 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/Student/projects/bookmark_luke/spec/setup_test_database.rb": [
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        5,
+        null,
+        5,
+        null
+      ],
       "/Users/Student/projects/bookmark_luke/spec/bookmark_spec.rb": [
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
         1,
         null,
         1,
         null,
-        1,
+        null,
+        null
+      ],
+      "/Users/Student/projects/bookmark_luke/spec/features/adding_bookmarks_spec.rb": [
+        null,
+        null,
         1,
         1,
         1,
         1,
         1,
         null,
-        null,
+        1,
         null,
         null
       ],
@@ -22,6 +60,10 @@
         null,
         1,
         1,
+        1,
+        1,
+        1,
+        null,
         1,
         null,
         1,
@@ -41,6 +83,6 @@
         null
       ]
     },
-    "timestamp": 1571734402
+    "timestamp": 1571753963
   }
 }
