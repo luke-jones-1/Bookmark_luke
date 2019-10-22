@@ -7,12 +7,8 @@ gem 'sinatra'
 
 gem 'capybara', group: :test
 gem 'rspec', group: :test
-# git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+gem 'rubocop', group: :test
+gem 'simplecov', group: :test
+gem 'simplecov-console', group: :test
 
-# gem "rails"
-
-# gem 'rspec'
-# gem 'rubocop'
-# gem 'simplecov'
-# gem 'simplecov-console'
-# gem 'sinatra'
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
