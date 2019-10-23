@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 require 'sinatra/base'
-require_relative './lib/bookmark'
+require './lib/bookmark'
+require './database_connection_setup'
 
 # This is bigboy class
 class BookmarkManager < Sinatra::Base

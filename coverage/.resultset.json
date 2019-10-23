@@ -6,6 +6,7 @@
         null,
         1,
         1,
+        1,
         null,
         null,
         1,
@@ -52,6 +53,7 @@
         null,
         null,
         1,
+        1,
         null,
         null,
         1,
@@ -97,6 +99,8 @@
         null,
         1,
         2,
+        null,
+        null,
         2,
         null,
         null,
@@ -105,14 +109,36 @@
         null,
         null,
         null,
+        null
+      ],
+      "/Users/Student/projects/bookmark_luke/lib/database_connection.rb": [
+        null,
         null,
         1,
-        27,
-        27,
+        null,
+        1,
+        1,
+        4,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        28,
+        null,
+        null
+      ],
+      "/Users/Student/projects/bookmark_luke/database_connection_setup.rb": [
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
         null,
         0,
-        null,
-        null,
         null
       ],
       "/Users/Student/projects/bookmark_luke/spec/setup_test_database.rb": [
@@ -123,9 +149,9 @@
         1,
         null,
         null,
-        10,
+        13,
         null,
-        10,
+        13,
         null
       ],
       "/Users/Student/projects/bookmark_luke/spec/bookmark_spec.rb": [
@@ -224,6 +250,33 @@
         null
       ],
       "/Users/Student/projects/bookmark_luke/spec/database_connection_spec.rb": [
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
         null
       ],
       "/Users/Student/projects/bookmark_luke/spec/features/adding_bookmarks_spec.rb": [
@@ -321,6 +374,6 @@
         null
       ]
     },
-    "timestamp": 1571829281
+    "timestamp": 1571831325
   }
 }
