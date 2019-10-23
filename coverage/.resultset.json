@@ -52,7 +52,7 @@
       "/Users/Student/projects/bookmark_luke/lib/bookmark.rb": [
         null,
         null,
-        1,
+        null,
         1,
         null,
         null,
@@ -115,6 +115,8 @@
         null,
         null,
         1,
+        null,
+        null,
         null,
         1,
         1,
@@ -374,6 +376,6 @@
         null
       ]
     },
-    "timestamp": 1571831325
+    "timestamp": 1571831838
   }
 }

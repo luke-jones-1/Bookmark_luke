@@ -3,7 +3,7 @@
 require 'database_helpers'
 
 feature 'Updating a bookmark' do
-  it 'updates the bookmark' do
+  scenario 'updates the bookmark' do
     bookmark =
       create_new(url: 'http://www.makersacademy.com', title: 'Makers Academy')
     visit '/bookmarks'

@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-23T12:48:45+01:00">2019-10-23T12:48:45+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-23T12:57:18+01:00">2019-10-23T12:57:18+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.25
+         2.27
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>13</b> files in total.
-    <b>175</b> relevant lines. 
-    <span class="green"><b>174</b> lines covered</span> and
+    <b>174</b> relevant lines. 
+    <span class="green"><b>173</b> lines covered</span> and
     <span class="red"><b>1</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -74,16 +74,16 @@
         <td class="strong"><a href="#9f23dd9640d318c7fa150a6d6ec19da1af0d849e" class="src_link" title="lib/bookmark.rb">lib/bookmark.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>60</td>
-        <td>25</td>
-        <td>25</td>
+        <td>24</td>
+        <td>24</td>
         <td>0</td>
-        <td>6.8</td>
+        <td>7.1</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#f66f561f64797e99723ca708aeb14fbe8b1fa23f" class="src_link" title="lib/database_connection.rb">lib/database_connection.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>17</td>
+        <td>19</td>
         <td>8</td>
         <td>8</td>
         <td>0</td>
@@ -569,8 +569,8 @@
     <h3>lib/bookmark.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>25</b> relevant lines. 
-      <span class="green"><b>25</b> lines covered</span> and
+      <b>24</b> relevant lines. 
+      <span class="green"><b>24</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -590,10 +590,10 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="3">
           
-          <code class="ruby">require &#39;pg&#39;</code>
+          
+          <code class="ruby"># require &#39;pg&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
@@ -981,79 +981,91 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"># class that handles the responsibility of creating and maintaining a connection</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby"># to the database</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
           <code class="ruby">class DatabaseConnection</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="6">
+        <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
           <code class="ruby">  def self.setup(dbname)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="7">
+        <li class="covered" data-hits="4" data-linenumber="9">
           <span class="hits">4</span>
           
           <code class="ruby">    @connection = PG.connect(dbname: dbname)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="10">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
+        <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
           <code class="ruby">  def self.connection</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="11">
+        <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
           <code class="ruby">    @connection</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="15">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
+        <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
           <code class="ruby">  def self.query(sql)</code>
         </li>
       
-        <li class="covered" data-hits="28" data-linenumber="15">
+        <li class="covered" data-hits="28" data-linenumber="17">
           <span class="hits">28</span>
           
           <code class="ruby">    @connection.exec(sql)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">end</code>
@@ -1670,7 +1682,7 @@
         <li class="covered" data-hits="1" data-linenumber="23">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(connection).to receive(:exec).with(&quot;SELECT * FROM bookmarks;&quot;)</code>
+          <code class="ruby">      expect(connection).to receive(:exec).with(&#39;SELECT * FROM bookmarks;&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
@@ -1682,7 +1694,7 @@
         <li class="covered" data-hits="1" data-linenumber="25">
           <span class="hits">1</span>
           
-          <code class="ruby">      DatabaseConnection.query(&quot;SELECT * FROM bookmarks;&quot;)</code>
+          <code class="ruby">      DatabaseConnection.query(&#39;SELECT * FROM bookmarks;&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="26">
@@ -1870,7 +1882,7 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &#39;allows a user to add a bookmakr to bookmark manager&#39; do</code>
+          <code class="ruby">  scenario &#39;allows a user to add a bookmakr to bookmark manager&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
@@ -2306,7 +2318,7 @@
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &#39;updates the bookmark&#39; do</code>
+          <code class="ruby">  scenario &#39;updates the bookmark&#39; do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
