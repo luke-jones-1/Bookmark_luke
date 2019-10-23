@@ -13,6 +13,6 @@ end
 
 def standard_bookmarks
   create_new(url: 'http://www.makersacademy.com', title: 'Makers Academy')
-  create_new(url: 'http://www.destroyallsoftware.com', title: 'Destroy All Software')
+  create_new(url: 'http://www.twitter.com', title: 'Twitter')
   create_new(url: 'http://www.google.com', title: 'Google')
 end

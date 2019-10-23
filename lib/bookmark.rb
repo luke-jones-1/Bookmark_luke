@@ -22,7 +22,11 @@ class Bookmark
   end
 
   def self.create(url:, title:)
-    result = environment_connection.exec("INSERT INTO bookmarks (url, title) VALUES('#{url}', '#{title}') RETURNING id, url, title")
+    result =
+      environment_connection.exec(
+        %{INSERT INTO bookmarks (url, title)
+          VALUES('#{url}', '#{title}') RETURNING id, url, title}
+      )
     create_object(result)
   end
 
@@ -31,18 +35,24 @@ class Bookmark
   end
 
   def self.update(id:, url:, title:)
-    result = environment_connection.exec("UPDATE bookmarks SET url = '#{url}', title = '#{title}' WHERE id = '#{id}' RETURNING id, url, title;")
+    result = environment_connection.exec(
+      %(UPDATE bookmarks
+        SET url = '#{url}', title = '#{title}'
+        WHERE id = '#{id}'
+        RETURNING id, url, title)
+    )
     create_object(result)
   end
 
   def self.find(id:)
-    result = environment_connection.exec("SELECT * FROM bookmarks WHERE id = #{id};")
+    result = environment_connection.exec(
+      "SELECT * FROM bookmarks WHERE id = #{id};"
+    )
     create_object(result)
   end
 
   def self.create_object(result)
-    Bookmark
-    .new(
+    Bookmark.new(
       id: result[0]['id'], url: result[0]['url'], title: result[0]['title']
     )
   end

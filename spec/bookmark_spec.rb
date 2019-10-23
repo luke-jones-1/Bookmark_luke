@@ -9,7 +9,7 @@ describe Bookmark do
       bookmark = create_new(url: 'http://www.google.com', title: 'Google')
       create_new(url: 'http://www.makersacademy.com', title: 'Makers Academy')
       create_new(
-        url: 'http://www.destroyallsoftware.com', title: 'Destroy All software'
+        url: 'http://www.twitter.com', title: 'Twitter'
       )
       bookmarks = Bookmark.all
       expect(bookmarks.length).to eq 3
@@ -32,7 +32,8 @@ describe Bookmark do
   end
   describe '.delete' do
     it 'deletes a bookmark' do
-      bookmark = create_new(url: 'http://www.makersacademy.com', title: 'Makers Academy')
+      bookmark =
+        create_new(url: 'http://www.makersacademy.com', title: 'Makers Academy')
 
       Bookmark.delete(id: bookmark.id)
 
@@ -41,8 +42,14 @@ describe Bookmark do
   end
   describe '.update' do
     it 'updates a bookmark' do
-      bookmark = create_new(title: 'Makers Academy', url: 'http://www.makersacademy.com')
-      updated_bookmark = Bookmark.update(id: bookmark.id, url: 'http://www.snakersacademy.com', title: 'Snakers Academy')
+      bookmark =
+        create_new(title: 'Makers Academy', url: 'http://www.makersacademy.com')
+      updated_bookmark =
+        Bookmark.update(
+          id: bookmark.id,
+          url: 'http://www.snakersacademy.com',
+          title: 'Snakers Academy'
+        )
 
       expect(updated_bookmark).to be_a Bookmark
       expect(updated_bookmark.id).to eq bookmark.id
@@ -52,7 +59,8 @@ describe Bookmark do
   end
   describe '.find' do
     it 'returns the requested bookmark object' do
-      bookmark = create_new(title: 'Makers Academy', url: 'http://www.makersacademy.com')
+      bookmark =
+        create_new(title: 'Makers Academy', url: 'http://www.makersacademy.com')
 
       result = Bookmark.find(id: bookmark.id)
 
