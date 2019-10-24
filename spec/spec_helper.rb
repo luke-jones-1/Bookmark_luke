@@ -28,20 +28,6 @@ require 'rspec'
 # Tell Capybara to talk to BookmarkManager
 Capybara.app = BookmarkManager
 
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
-  [
-    SimpleCov::Formatter::Console,
-    # Want a nice code coverage website? Uncomment this next line!
-    SimpleCov::Formatter::HTMLFormatter
-  ]
-)
-
-SimpleCov.start
-### the rest of the file ###
-
 require_relative 'setup_test_database'
 
 RSpec.configure do |config|

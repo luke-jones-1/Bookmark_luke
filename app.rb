@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/bookmark'
 require './database_connection_setup'
+require 'uri'
 
 # This is bigboy class
 class BookmarkManager < Sinatra::Base
   enable :sessions, :method_override
+  register Sinatra::Flash
 
   get '/' do
     erb(:index)
@@ -23,7 +26,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks' do
-    Bookmark.create(url: params[:url], title: params[:title])
+    flash[:notice] = "You must enter a valid URL." unless Bookmark.create(url: params[:url], title: params[:title])
     redirect '/bookmarks'
   end
 
@@ -38,7 +41,17 @@ class BookmarkManager < Sinatra::Base
   end
 
   patch '/bookmarks/:id' do
-    Bookmark.update(id: params[:id], url: params[:url], title: params[:title])
+    flash[:notice] = "You must enter a valid URL." unless Bookmark.update(id: params[:id], url: params[:url], title: params[:title])
+    redirect '/bookmarks'
+  end
+
+  get '/bookmarks/:id/new_comment' do
+    @bookmark_id = params[:id]
+    erb :'new_comment'
+  end
+
+  post '/bookmarks/:id/comments' do
+    Comment.create(text: params[:comment], bookmark_id: params[:id])
     redirect '/bookmarks'
   end
 

@@ -2,8 +2,11 @@
 
 require './lib/database_connection'
 
+# p 'i got here'
+
 if ENV['RACK_ENV'] == 'test'
-  DatabaseConnection.setup('bookmark_manager_test')
+  # p 'i got here'
+  DatabaseConnection.setup(dbname: 'bookmark_manager_test')
 else
-  DatabaseConnection.setup('bookmark_manager')
+  DatabaseConnection.setup(dbname: 'bookmark_manager')
 end
