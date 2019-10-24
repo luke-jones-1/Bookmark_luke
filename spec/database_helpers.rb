@@ -22,3 +22,10 @@ def standard_bookmarks
   create_new(url: 'http://www.twitter.com', title: 'Twitter')
   create_new(url: 'http://www.google.com', title: 'Google')
 end
+
+def create_new_tag_sql(content:)
+  DatabaseConnection.query(
+    %{INSERT INTO tags (content)
+    VALUES('#{content}') RETURNING id, content}
+  )
+end

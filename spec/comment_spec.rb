@@ -6,7 +6,7 @@ require 'comment'
 
 describe Comment do
   before(:each) do
-    @result = create_new_bookmark_sql(url: 'http://www.TestURL.com', title: 'Test URL')
+    @result = create_new_bookmark_sql(url: 'http://www.TestURL.com', title: 'Test Title')
   end
 
   let(:bookmark) {double :bookmark, id: @result[0]['id'], url: @result[0]['url'], title: @result[0]['title']}
