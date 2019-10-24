@@ -28,7 +28,9 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks' do
-    flash[:notice] = "You must enter a valid URL." unless Bookmark.create(url: params[:url], title: params[:title])
+    if Bookmark.create(url: params[:url], title: params[:title]) == false
+      flash[:notice] = 'You must enter a valid URL.'
+    end
     redirect '/bookmarks'
   end
 
@@ -43,7 +45,11 @@ class BookmarkManager < Sinatra::Base
   end
 
   patch '/bookmarks/:id' do
-    flash[:notice] = "You must enter a valid URL." unless Bookmark.update(id: params[:id], url: params[:url], title: params[:title])
+    result =
+      Bookmark.update(id: params[:id], url: params[:url], title: params[:title])
+    if result == false
+      flash[:notice] = 'You must enter a valid URL.'
+    end
     redirect '/bookmarks'
   end
 

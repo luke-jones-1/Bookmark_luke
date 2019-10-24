@@ -29,3 +29,10 @@ def create_new_tag_sql(content:)
     VALUES('#{content}') RETURNING id, content}
   )
 end
+
+def create_new_bookmark_tag_sql(bookmark_id:, tag_id:)
+  DatabaseConnection.query(
+    %{INSERT INTO bookmarks_tags (bookmark_id, tag_id)
+      VALUES('#{bookmark_id}', '#{tag_id}') RETURNING bookmark_id, tag_id}
+  )
+end

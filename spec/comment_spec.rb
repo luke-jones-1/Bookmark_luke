@@ -6,14 +6,19 @@ require 'comment'
 
 describe Comment do
   before(:each) do
-    @result = create_new_bookmark_sql(url: 'http://www.TestURL.com', title: 'Test Title')
+    @result =
+      create_new_bookmark_sql(
+        url: 'http://www.TestURL.com',
+        title: 'Test Title'
+      )
   end
 
-  let(:bookmark) {double :bookmark, id: @result[0]['id'], url: @result[0]['url'], title: @result[0]['title']}
+  let(:bookmark) { double :bookmark, id: @result[0]['id'], url: @result[0]['url'], title: @result[0]['title'] }
 
   describe '.create' do
     it 'creates a new comment' do
-      comment = described_class.create(text: 'Test comment', bookmark_id: bookmark.id)
+      comment =
+        described_class.create(text: 'Test comment', bookmark_id: bookmark.id)
       persisted_data = persisted_data(table: 'comments', id: comment.id)
 
       expect(comment).to be_a described_class

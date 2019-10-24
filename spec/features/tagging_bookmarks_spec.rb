@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Tags' do
   feature 'adding and viewing' do
     scenario 'a viewable tag is added to a bookmark' do
@@ -11,7 +13,7 @@ feature 'Tags' do
       fill_in 'tag', with: 'Test Tag'
       click_button 'Submit'
 
-      expect(current_path).to eq "/bookmarks"
+      expect(current_path).to eq '/bookmarks'
       expect(first('.bookmark')).to have_content 'Test Tag'
     end
   end

@@ -5,7 +5,7 @@ require 'bookmark'
 
 describe Bookmark do
   let(:comment_class) { double(:comment_class) }
-  let(:tag_class) {double :tag_class}
+  let(:tag_class) { double :tag_class }
 
   describe '.all' do
     it 'returns all bookmarks' do
@@ -35,7 +35,10 @@ describe Bookmark do
     end
 
     it 'does not create a new bookmark if the url is not valid' do
-      described_class.create(url: 'not a real bookmark', title: 'not a real bookmark')
+      described_class.create(
+        url: 'not a real bookmark',
+        title: 'not a real bookmark'
+      )
       expect(described_class.all).to be_empty
     end
   end
