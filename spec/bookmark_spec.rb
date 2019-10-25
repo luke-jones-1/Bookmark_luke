@@ -4,8 +4,14 @@ require_relative 'database_helpers'
 require 'bookmark'
 
 describe Bookmark do
+  before(:each) do
+    @t_result_1 = create_new_tag_sql(content: 'Test Tag 1').first
+    @t_result_2 = create_new_tag_sql(content: 'Test Tag 2').first
+  end
   let(:comment_class) { double(:comment_class) }
   let(:tag_class) { double :tag_class }
+  let(:tag1) { double :tag, id: @t_result_1['id'] }
+  let(:tag2) { double :tag, id: @t_result_2['id'] }
 
   describe '.all' do
     it 'returns all bookmarks' do
@@ -82,6 +88,28 @@ describe Bookmark do
       expect(result.id).to eq bookmark.id
       expect(result.title).to eq 'Makers Academy'
       expect(result.url).to eq 'http://www.makersacademy.com'
+    end
+  end
+
+  describe '.where' do
+    it 'returns bookmarks with a given tag' do
+      bookmark =
+        create_new(title: 'Makers Academy', url: 'http://www.makersacademy.com')
+      # tag1 = create_new_tag_sql(content: 'Test Tag 1')
+      # tag2 = create_new_tag_sql(content: 'Test Tag 2')
+      # p bookmark
+      # p tag1
+      create_new_bookmark_tag_sql(bookmark_id: bookmark.id, tag_id: tag1.id)
+      create_new_bookmark_tag_sql(bookmark_id: bookmark.id, tag_id: tag2.id)
+
+      bookmarks = Bookmark.where(tag_id: tag1.id)
+      result = bookmarks.first
+
+      expect(bookmarks.length).to eq 1
+      expect(result).to be_a Bookmark
+      expect(result.id).to eq bookmark.id
+      expect(result.title).to eq bookmark.title
+      expect(result.url).to eq bookmark.url
     end
   end
 

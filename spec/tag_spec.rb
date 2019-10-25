@@ -3,6 +3,9 @@
 require 'database_helpers'
 
 describe Tag do
+
+  let(:bookmark_class) { double :bookmark_class}
+
   before(:each) do
     @bm_result =
       create_new_bookmark_sql(
@@ -19,15 +22,26 @@ describe Tag do
   end
 
   describe '.create' do
-    it 'creates a new tag' do
-      tag = described_class.create(content: 'Test Tag')
+    context 'tag already exists' do
+      it 'creates a new tag' do
+        tag = described_class.create(content: 'Test Tag')
 
-      persisted_data = persisted_data(table: 'tags', id: tag.id)
+        persisted_data = persisted_data(table: 'tags', id: tag.id)
 
-      expect(tag).to be_a described_class
-      expect(tag.id).to eq persisted_data.first['id']
-      expect(tag.content).to eq 'Test Tag'
+        expect(tag).to be_a described_class
+        expect(tag.id).to eq persisted_data.first['id']
+        expect(tag.content).to eq 'Test Tag'
+      end
     end
+    context 'tag already exists' do
+      it 'returns already existing tag' do
+        tag1 = described_class.create(content: 'Test Tag')
+        tag2 = described_class.create(content: 'Test Tag')
+
+        expect(tag2.id).to eq tag1.id
+      end
+    end
+
   end
 
   describe '.where' do
@@ -44,6 +58,27 @@ describe Tag do
       expect(tag).to be_a described_class
       expect(tag.id).to eq tag1.id
       expect(tag.content).to eq tag1.content
+    end
+  end
+
+  describe '.find' do
+    it 'returns a tag with a given id' do
+      tag = described_class.create(content: 'Test Tag')
+
+      result = described_class.find(tag_id: tag.id)
+
+      expect(result.id).to eq tag.id
+      expect(result.content).to eq tag.content
+    end
+  end
+
+  describe '#bookmarks' do
+    it 'calls .where on bookmark class' do
+      tag = described_class.create(content: 'Test Tag')
+
+      expect(bookmark_class).to receive(:where).with(tag_id: tag.id)
+
+      tag.bookmarks(bookmark_class)
     end
   end
 end

@@ -8,12 +8,12 @@ describe BookmarkTag do
       create_new_bookmark_sql(
         url: 'http://www.TestURL.com',
         title: 'Test Title'
-      )
-    @t_result = create_new_tag_sql(content: 'Test Tag')
+      ).first
+    @t_result = create_new_tag_sql(content: 'Test Tag').first
   end
 
-  let(:bookmark) { double :bookmark, id: @bm_result[0]['id'], url: @bm_result[0]['url'], title: @bm_result[0]['title'] }
-  let(:tag) { double :tag, id: @t_result[0]['id'], content: @t_result[0]['content'] }
+  let(:bookmark) { double :bookmark, id: @bm_result['id'], url: @bm_result['url'], title: @bm_result['title'] }
+  let(:tag) { double :tag, id: @t_result['id'], content: @t_result['content'] }
   describe '.create' do
     it 'creates a link between a given bookmark and tag' do
       bookmark_tag =
